@@ -1,0 +1,158 @@
+@import "mixin";
+
+// variables
+// $dark: #023047;
+$light: #023047;
+// $light: #f1faee;
+$dark: #f1faee;
+// $dark-bg: #01141d;
+$light-bg: #01141d;
+// $light-bg: #fff;
+$dark-bg: #fff;
+$logo: #fd5e5e;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+//reseting and adjustments
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $light-bg;
+  height: 100vh;
+}
+
+//main styles
+.container {
+  width: 116.6rem;
+  margin: 0 auto;
+}
+
+// nav-container
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 116.6rem;
+  position: fixed;
+  margin-top: 3.4rem;
+
+  .logo {
+    font-weight: 700;
+    font-size: 2rem;
+    color: $logo;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    .menu-items {
+      a {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $dark;
+        text-decoration: none;
+        margin-right: 7rem;
+        transition: all 300ms;
+        display: inline-block;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+      .btn {
+        @include btnmix(12, 0.8, 3.2);
+        &.dark {
+          background: $dark;
+          color: $light;
+        }
+        &.light {
+          background: $light;
+          color: $dark;
+        }
+      }
+    }
+  }
+
+  .dark-switch,
+  .light-switch {
+    display: flex;
+    position: absolute;
+    right: 0;
+    transform: translateY(-16px);
+    opacity: 0;
+    transition: all 500ms;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+  }
+}
+
+// buttons
+a.btn {
+  @include btnmix(12, 1.2, 3.2);
+  display: inline-block;
+  &.dark {
+    background: $dark;
+    color: $light;
+  }
+
+  &.light {
+    background: $light;
+    color: $dark;
+    border: 1px solid $dark;
+  }
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+
+  h1 {
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 120%;
+    color: $dark;
+    width: 58.7rem;
+    margin-top: 6rem;
+    margin-bottom: 1 0.6rem;
+  }
+  .sub-heading {
+    font-size: 2rem;
+    line-height: 170%;
+    color: $dark;
+    width: 58.7rem;
+  }
+
+  .btn {
+    margin-top: 2rem;
+    margin-right: 4.2rem;
+  }
+
+  .right {
+    align-self: flex-end;
+    img {
+      vertical-align: middle;
+      height: 55rem;
+      object-fit: cover;
+    }
+  }
+}
